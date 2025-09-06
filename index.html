@@ -18,7 +18,6 @@
             background-color: #22be66;
         }
         header{
-            margin: 0px;
             background: linear-gradient(to bottom, #36c074,#2ea363,#227145);
             padding: 10px 10px ;
             box-shadow: -2px -4px 7px 7px rgb(0 0 0 / 75%);
@@ -34,17 +33,20 @@
             text-align: center;
             margin: 20px 0 30px 0;
             font-size: 20px;
-            
         }
-        header nav > a{
+        header  #home,#curiosidades,#noticias,#faleconosco ,#novidades {
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             text-decoration: none;
             color: white;
-            margin: 0px 20px 0px 0px;
+            padding: 10px 10px 10px 10px ;
             font-size: 16px;    
-      
+            
         }
-
+        #home:hover, #curiosidades:hover, #noticias:hover, #faleconosco:hover {
+            background: linear-gradient(to right, #5ecf917a,#80daa856,#eafcf26e);
+            padding:10px 10px 10px 10px;
+            border-radius: 10px 10px 10px 10px ;
+        }
         main{
             max-width: 800px;
             margin: 0px auto;
@@ -58,6 +60,7 @@
             color: #227145;
         }
         main >h2{
+            font-size: 30px;
             background: linear-gradient(to right, #5ecf917a,#80daa856,#eafcf26e)
         }
         #historia,#Versão{
@@ -65,25 +68,33 @@
             text-indent: 30px;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18px;
-        }
+        }     
         #links{
             text-decoration: none;
             color: #227145;
             font-weight: bold;
         }
-        main img{
 
-        display: block;
-        margin: 20px auto; 
-        max-width: 100%;  
-        height: auto;      
+        main img{
+            display: block;
+            margin: 20px auto; 
+            max-width: 100%;        
         }
-        #video{    
-            text-align: center;
+        #video{
+            padding: 10px 10px 0px 15px; 
             background-color: #227145;
-            
-            padding: 10px 10px 10px 10px;         
-        }
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 8px;
+        }       
+        #video iframe {
+            position: absolute;
+            width: 95%;
+            height: 95%;
+        }       
         main > h3{
             background-color: #30be6c;
             margin: 10px 0px 0px 0px ;
@@ -94,7 +105,8 @@
         #lista{
             display: flex;
             background-color: #bce5d4;  
-            font-size: 18px;           
+            font-size: 18px;
+          
         }
         #lista2{
             background-color: #bce5d4;
@@ -111,12 +123,10 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18px;
         }
-        #ultimo{
+        #final{
             text-indent: 30px;
             margin: 0px;
-            padding: 10px 0px 16px 10px;
-            background-color:#bce5d4 ;
-            border-radius: 0px 0px 20px 20px;
+            padding: 10px 0px 0px 10px;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18px;
         }
@@ -125,19 +135,9 @@
             color: white;
             text-align: center;
             padding: 4px;
-            margin: 0px;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18px;
-        }
-        footer{
             margin: 50px 0px 0px 0px ;
-        }
-        #final{
-            text-indent: 30px;
-            margin: 0px;
-            padding: 10px 0px 0px 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 18px;
         }
     </style>
 </head>
@@ -145,12 +145,16 @@
     <header>
         <h1>CURIOSIDADES DE TECNOLOGIA</h1>
         <p>Tudo aquilo que você sempre quis saber sobre o mundo Tech, em um único lugar</p>
-        <nav>
-            <a href="">Home</a>
-            <a href="https://www.android.com/intl/pt_br/new-features-on-android/" target="_blank" rel="external">Notícias</a>
-            <a href="https://www.tecmundo.com.br/software/198354-10-curiosidades-android-brasil.htm" target="_blank" rel="external">Curiosidades</a>
-            <a href="https://discord.gg/yqQKCjX9" target="_blank" rel="external">Fale Conosco</a>
-        </nav>
+        <div id="menu">
+            <a id="home" href="">Home</a>
+
+            <a id="noticias" href="https://www.android.com/intl/pt_br/new-features-on-android/" target="_blank" rel="external">Notícias</a>
+        
+            <a id="curiosidades" href="https://www.tecmundo.com.br/software/198354-10-curiosidades-android-brasil.htm" target="_blank" rel="external">Curiosidades</a>
+            
+            <a id="faleconosco" href="https://discord.gg/yqQKCjX9" target="_blank" rel="external">Fale Conosco</a>
+
+        </div>
     </header>
     <main>
         <h1>História do Mascote do Android</h1>
@@ -183,7 +187,9 @@
 
         <p id="Versão">A principal inspiração para os traços do novo Bugdroid veio daqueles bonequinhos que ilustram portas de banheiro para indicar o gênero de cada porta. Conta a lenda que a artista estava criando em sua mesa no escritório do Google e olhou para o lado dos banheiros e a identificação foi imediata: simples, limpo, objetivo.</p>
 
-        <nav id="video"><iframe width="700" height="315" src="https://www.youtube.com/embed/l2UDgpLz20M?si=keNa8TLNnMzHn_EQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></nav>
+        <div id="video" >
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/l2UDgpLz20M?si=pDQcKm2eBOAajlqF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
         
         <h3>Quer aprender mais?</h3>
 
@@ -213,7 +219,7 @@
 
         <p id="mais">Infelizmente, o Android Q não existiu, pois o Google resolveu pôr fim a essa divertida prática e começou a usar numerações, o que deu origem ao Android 10.</p>
 
-        <p id="ultimo">Acesse aqui o site <a id="links" href="https://tecnoblog.net/responde/o-que-e-android-conheca-a-historia-do-sistema-operacional-movel-mais-popular-do-mundo/" target="_blank" rel="external">Android History 🔗</a> para conhecer a sequência das versões "adocicadas" e o que cada uma trouxe para o sistema Android</p>
+        <p id="mais">Acesse aqui o site <a id="links" href="https://tecnoblog.net/responde/o-que-e-android-conheca-a-historia-do-sistema-operacional-movel-mais-popular-do-mundo/" target="_blank" rel="external">Android History 🔗</a> para conhecer a sequência das versões "adocicadas" e o que cada uma trouxe para o sistema Android</p>
 
         <p id="final">Então é isso! Espero que você tenha gostado do nosso artigo com essa curiosidade sobre o sistema <a id="links" href="https://pt.wikipedia.org/wiki/Android" target="_blank" rel="external">Android</a> e seu simpático mascote.</p>
     </main>
@@ -222,4 +228,3 @@
     </footer>
 </body>
 </html>
-
